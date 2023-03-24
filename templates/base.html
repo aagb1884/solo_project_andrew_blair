@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"> <!-- NEW -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- NEW -->
+  <title>Barry Chips</title>
+</head>
+<body>
+  <header>
+    <section>
+      <h1>I'm Barry Chips and I sell barry chips.</h1> 
+      <p>Enjoy this homepage. It has minimal interactive features.</p>
+    </section>  
+    <nav>
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/items">Menu</a></li>
+        <li><a href="/orders">Orders</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>

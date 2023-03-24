@@ -17,8 +17,8 @@ CREATE TABLE items (
 
 CREATE TABLE orders_items (
     id SERIAL PRIMARY KEY,
-    item_id INT NOT NULL REFERENCES items(id),
-    order_id INT NOT NULL REFERENCES orders(id)
+    order_id INT NOT NULL REFERENCES orders(id),
+    item_id INT NOT NULL REFERENCES items(id)  
 );
 
 INSERT INTO orders (name, phone_no, address)
@@ -35,3 +35,12 @@ VALUES ('Chips and Cheese', '200');
 
 INSERT INTO items (name, price)
 VALUES ('Chips and Curry Sauce', '200');
+
+INSERT INTO orders_items (order_id, item_id)
+VALUES (1, 2);
+
+INSERT INTO orders_items (order_id, item_id)
+VALUES (2, 1);
+
+INSERT INTO orders_items (order_id, item_id)
+VALUES (2, 3);

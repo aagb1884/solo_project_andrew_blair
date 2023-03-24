@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Order {{order.id}}</h2>
+
+<section>
+    <div class="name">Name: {{order.name}}</div>
+    <div class="phone">Phone: {{order.phone_no}}</div>
+    <div class="phone">Address: {{order.address}}</div>
+    <div class="phone">Food ordered: {{order.items}}</div> 
+</section>
+
+
+{% endblock %}

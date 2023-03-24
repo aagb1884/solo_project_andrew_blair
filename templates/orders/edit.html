@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update an Order</h2>
+
+<form action="/orders/{{ order.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="phone-number">Phone Number:</label>
+        <select name="phone-number" id="phone-number">
+    </div>  
+    <div>
+        <label for="address">Address:</label>
+        <select name="address" id="address">
+    </div>        
+    <label for="items">Choose your chips:</label>
+
+    <select name="items" id="items" multiple>
+      <option value="chips">{{item.id[0]}}</option>
+      <option value="chips-cheese">{{item.id[1]}}</option>
+      <option value="chips-curry">{{item.id[2]}}</option>
+      <!-- research how to refer to each item on menu - maybe a loop? -->
+    
+    </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

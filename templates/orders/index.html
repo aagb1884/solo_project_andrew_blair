@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for order in orders %}
+<section>
+    <div class="order_ref">Order Ref: {{order.id}}</div>
+    <div class="name">Name: {{order.name}}</div>
+    <div class="phone">Phone: {{order.phone_no}}</div>
+    <div class="phone">Address: {{order.address}}</div>
+    <div class="phone">Food ordered: {{order.items}}</div> 
+</section>
+  <br>
+{% endfor %}
+{% endblock %}
