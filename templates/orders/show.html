@@ -8,6 +8,10 @@
     <div class="phone">Phone: {{order.phone_no}}</div>
     <div class="phone">Address: {{order.address}}</div>
     <div class="phone">Food ordered: {{order.items}}</div> 
+    <a href="/orders/{{ order.id }}/edit">Edit</a>
+    <form action="/orders/{{ order.id }}/delete" method="POST">
+      <input type="submit" value="Delete">
+    </form>
 </section>
 
 

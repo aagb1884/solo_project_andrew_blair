@@ -25,7 +25,6 @@ def select(id):
     sql = "SELECT * FROM orders WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-
     if result is not None:
         order = Order(result['name'], result['phone_no'], result['address'], result['id'] )
     return order
