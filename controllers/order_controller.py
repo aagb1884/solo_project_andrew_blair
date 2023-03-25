@@ -10,4 +10,4 @@ order_blueprint = Blueprint("order", __name__)
 @order_blueprint.route("/orders")
 def orders():
     all_orders = order_repo.select_all()
-    return render_template("orders/index.html", all_orders = orders)
+    return render_template("orders/index.html", orders = all_orders)

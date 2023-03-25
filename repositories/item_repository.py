@@ -20,6 +20,16 @@ def select_all():
         items.append(item)
     return items
 
+def select(id):
+    item = None
+    sql = "SELECT * FROM items WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        item = Item(result['name'], result['price'], result['id'] )
+    return item
+
 def order(items):
     orders = []
 
@@ -37,3 +47,7 @@ def order(items):
         orders.append(order)
 
     return orders
+
+def delete_all():
+    sql = "DELETE FROM items"
+    run_sql(sql)
