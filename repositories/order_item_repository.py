@@ -19,3 +19,12 @@ def select_all():
         order_item = Order_Item(row['order'], row['item'], row['id'])
         order_items.append(order_item)
     return order_items
+
+def delete_all():
+    sql = "DELETE FROM orders_items"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM orders_items WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

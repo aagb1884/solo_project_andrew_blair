@@ -15,9 +15,9 @@ def orders():
 
 @order_blueprint.route('/orders/<id>')
 def show_order(id):
-    specific_order = order_repo.add_item_to_order(id)
-    item = item_repo.select(id)
-    return render_template("orders/show.html", order = specific_order, item = item)
+    specific_item = order_repo.add_item_to_order(id)
+    specific_order = order_repo.select(id)
+    return render_template("orders/show.html", order = specific_order, item = specific_item)
 
 @order_blueprint.route('/orders/new')
 def new_order():
