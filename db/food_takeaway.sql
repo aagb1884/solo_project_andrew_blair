@@ -17,8 +17,8 @@ CREATE TABLE items (
 
 CREATE TABLE orders_items (
     id SERIAL PRIMARY KEY,
-    order_id INT NOT NULL REFERENCES orders(id),
-    item_id INT NOT NULL REFERENCES items(id)  
+    order_id INT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    item_id INT NOT NULL REFERENCES items(id) ON DELETE CASCADE
 );
 
 INSERT INTO orders (name, phone_no, address)
