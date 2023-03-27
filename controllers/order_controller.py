@@ -35,8 +35,9 @@ def create_order():
 
 @order_blueprint.route('/orders/<id>/edit')
 def edit_order(id):
+    item = item_repo.select(id)
     order = order_repo.select(id)
-    return render_template('orders/edit.html', order=order)
+    return render_template('orders/edit.html', order = order, item=item)
 
 @order_blueprint.route('/orders/<id>', methods=['POST'])
 def update_order(id):
