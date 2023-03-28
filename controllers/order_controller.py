@@ -43,6 +43,7 @@ def create_order():
     new_order = Order(name, phone_no, address, items)
     order_repo.save(new_order)
     return redirect("/orders")
+    print(request.post)
 
 @order_blueprint.route('/orders/<id>/edit')
 def edit_order(id):
