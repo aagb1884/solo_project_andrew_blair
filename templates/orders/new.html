@@ -3,10 +3,10 @@
 
 <h2>Add a New Order</h2>
 
-<form action="/orders" method="POST">
+<form action="/orders">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" name="name" id="name">
     </div>
     <div>
         <label for="phone-number">Phone Number:</label>
@@ -19,11 +19,9 @@
     <label for="items">Choose your chips:</label>
 
     <select name="items" id="items" multiple>
-      <option value="chips">{{item.id[0]}}</option>
-      <option value="chips-cheese">{{item.id[1]}}</option>
-      <option value="chips-curry">{{item.id[2]}}</option>
-      <!-- research how to refer to each item on menu - maybe a loop? -->
-    
+        {% for item in items %}
+        <option value="{{ item.id }}">{{ item.name }}</option>
+    {% endfor %}
     </select>
     </div>
     <div>

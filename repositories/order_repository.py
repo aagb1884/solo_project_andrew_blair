@@ -11,6 +11,9 @@ def save(order):
     values = [order.name, order.phone_no, order.address]
     results = run_sql( sql, values )
     order.id = results[0]['id']
+    for row in results:
+        items = item_repo.get_items_for_order(id)
+        order = Order(row['name'], row['phone_no'], row['address'], items, row['id'] )
     return order
 
 def select_all():
@@ -18,7 +21,9 @@ def select_all():
     sql = "SELECT * FROM orders"
     results = run_sql(sql)
     for row in results:
-        order = Order(row['name'], row['phone_no'], row['address'], row['id'])
+        
+        items = item_repo.get_items_for_order(id)
+        order = Order(row['name'], row['phone_no'], row['address'], items, row['id'])
         orders.append(order)
     return orders
 
@@ -30,8 +35,8 @@ def select(id):
 
     if results:
         result = results[0]
-        
-        order = Order(result['name'], result['phone_no'], result['address'], result['id'] )
+        items = item_repo.get_items_for_order(id)
+        order = Order(result['name'], result['phone_no'], result['address'], items, result['id'] )
     return order
 
 def delete_all():
@@ -44,9 +49,11 @@ def delete(id):
     run_sql(sql, values)
 
 def update(order):
-    sql = "UPDATE orders SET (name, phone_no, address, items) = (%s, %s, %s) WHERE id = %s"
+    sql = "UPDATE orders SET (name, phone_no, address) = (%s, %s, %s) WHERE id = %s"
     values = [order.name, order.phone_no, order.address, order.id]
     run_sql(sql, values)
+ 
+    
 
 def add_item_to_order(id):
     items = []
