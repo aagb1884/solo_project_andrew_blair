@@ -6,24 +6,23 @@
 <form action="/orders/{{ order.id }}" method="POST">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value="{{order.name}}">
     </div>
     <div>
         <label for="phone-number">Phone Number:</label>
-        <input type="phone-number" id="phone-number">
+        <input type="phone-number" id="phone-number" value="{{order.phone_no}}">
     </div>  
     <div>
         <label for="address">Address:</label>
-        <input type="address" id="address">
+        <input type="address" id="address" value="{{order.address}}">
     </div>        
     <label for="items">Choose your chips:</label>
 
     <select name="items" id="items" multiple>
-      <option value="chips">{{ item.id[1] }}</option>
-      <option value="chips-cheese">{{ item.id[2] }}</option>
-      <option value="chips-curry">{{ item.id[3] }}</option>
-      <!-- research how to refer to each item on menu - maybe a loop? -->
-    
+      <option value="{{ item.id[1] }}">Chips</option>>
+      <option value="{{ item.id[2] }}">Chips and Cheese</option>
+      <option value="{{ item.id[3] }}">Chips and Curry Sauce</option>
+
     </select>
     </div>
     <div>

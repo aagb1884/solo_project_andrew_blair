@@ -1,5 +1,7 @@
 body {
-    background-color: skyblue;
+    background-color: lightcoral;
+    color: white;
+    
 }
 
 nav > ul {
@@ -8,4 +10,35 @@ nav > ul {
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly;
+    
 }
+
+<style>
+body {
+  background-image: url('static/lars-blankers-potatoes.jpg');
+}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: palegreen;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>

@@ -11,13 +11,21 @@ order_blueprint = Blueprint("order", __name__)
 @order_blueprint.route("/orders")
 def orders():
     all_orders = order_repo.select_all()
+    order_items = []
+    for order in all_orders:
+        order_items = item_repo.get_items_for_order(order)
+        order.items = order_items    
+   
     return render_template("orders/index.html", orders = all_orders)
 
 @order_blueprint.route('/orders/<id>')
 def show_order(id):
-    specific_item = order_repo.add_item_to_order(id)
     specific_order = order_repo.select(id)
-    return render_template("orders/show.html", order = specific_order, item = specific_item)
+    order_items = item_repo.get_items_for_order(specific_order)
+    specific_order.items = order_items
+    
+    return render_template("orders/show.html", order = specific_order, item = order_items)
+
 
 @order_blueprint.route('/orders/new')
 def new_order():

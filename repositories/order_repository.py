@@ -15,7 +15,6 @@ def save(order):
 
 def select_all():
     orders = []
-
     sql = "SELECT * FROM orders"
     results = run_sql(sql)
     for row in results:
@@ -31,6 +30,7 @@ def select(id):
 
     if results:
         result = results[0]
+        
         order = Order(result['name'], result['phone_no'], result['address'], result['id'] )
     return order
 
@@ -51,10 +51,9 @@ def update(order):
 def add_item_to_order(id):
     items = []
     sql = """SELECT items.*
-            FROM items 
-            INNER JOIN orders_items
-            ON orders_items.item_id = items.id
-            WHERE order_id = %s"""
+            FROM items, orders_items
+            WHERE items.id = orders_items.item_id
+            AND orders_items.order_id = %s"""  
     values = [id]
     results = run_sql(sql, values)
     for result in results:
@@ -62,20 +61,3 @@ def add_item_to_order(id):
         items.append(item)
     return items
 
-
-# def items(order):
-#     items = []
-
-#     sql = """SELECT items.*
-#             FROM items 
-#             INNER JOIN orders_items
-#             ON orders_items.item_id = items.id
-#             WHERE order_id = %s"""
-#     values = [item.id]
-#     results = run_sql(sql, values)
-
-#     for row in results:
-#         item = Item(row['name'], row['price'], row['id'])
-#         items.append(item)
-
-#     return item
