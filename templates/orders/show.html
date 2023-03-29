@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+<section id ="individual-orders">
+<h2>Order #{{order.id}}</h2>
 
-<h2>Order {{order.id}}</h2>
 
-<section>
-    <div class="name">Name: {{order.name}}</div>
-    <div class="phone">Phone: {{order.phone_no}}</div>
-    <div class="address">Address: {{order.address}}</div>
-    Food ordered:{% for item in order.items %}
+    <div class="name"><u>Name:</u> {{order.name}}</div>
+    <div class="phone"><u>Phone:</u> {{order.phone_no}}</div>
+    <div class="address"><u>Address</u>: {{order.address}}</div>
+    <u>Food ordered:</u> {% for item in order.items %}
     <div class="food-items">{{item.name}}</div> 
     {% endfor %}
-    <div class="orders"><a href="/orders/{{ order.id }}/edit">Edit</a></div>
+    <div class="orders"><a href="/orders/{{ order.id }}/edit">Edit Order</a></div>
     <form action="/orders/{{ order.id }}/delete" method="POST">
-      <input type="submit" value="Delete">
+      <input type="submit" value="Delete Order">
     </form>
 </section>
 

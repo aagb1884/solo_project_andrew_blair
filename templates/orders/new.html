@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-
+<section id="new-order">
 <h2>Add a New Order</h2>
 
-<form action="/orders">
+
+<form action="/orders" method="POST" >
     <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name">
+        <label for="name">Name:
+        <input type="text" name="name" id="name"></label>
     </div>
     <div>
         <label for="phone-number">Phone Number:</label>
@@ -16,18 +17,22 @@
         <label for="address">Address:</label>
         <input type="text" name="address" id="address">
     </div>        
-    <label for="items">Choose your chips:</label>
-
-    <select name="items" id="items" multiple>
-        {% for item in items %}
-        <option value="{{ item.id }}">{{ item.name }}</option>
-    {% endfor %}
-    </select>
-    </div>
-    <div>
-        <input type="submit">
-    </div>
+<br>    
+        <label for="items">Choose your chips:
+<br>
+        <input type="checkbox" name="food-item" value="1" checked>
+        <label for="food-item">Chips</label><br>
+        <input type="checkbox" name="food-item" value="2">
+        <label for="food-item">Chips and Cheese</label><br>
+        <input type="checkbox" name="food-item" value="3">
+        <label for="food-item">Chips and Curry Sauce</label><br>
+        </label>
+    </div> 
 </form>
-
+<br>
+    <div class="new-order-button">
+        <a href="/orders/new">CLICK HERE TO PLACE ORDER</a>
+    </div> 
+</section>
 {% endblock %}
 

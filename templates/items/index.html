@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<section id="menu">
 
-{% for item in items %}
-    <div class="name">{{item.name}}
-      <div class="price">Price: {{item.price}}p</div>
-    </div>
-  <br>
-{% endfor %}
-<form action="/orders/new">
-  <input type="submit" value="New Order">
+  {% for item in items %}
+      <div class="name">{{item.name}}</div>
+      <div class="price">Price: {{item.price}}p</div>    
+      <br>
+  {% endfor %}
+      <div class="new-order">
+        <a href="/orders/new">ORDER NOW</a></div>             
+</section>
 {% endblock %}

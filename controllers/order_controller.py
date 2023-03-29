@@ -6,6 +6,8 @@ from models.item import Item
 
 import repositories.order_repository as order_repo
 import repositories.item_repository as item_repo
+import repositories.order_item_repository as order_item_repo
+
 
 order_blueprint = Blueprint("order", __name__)
 
@@ -39,11 +41,14 @@ def create_order():
     name = request.form["name"]
     phone_no = request.form["phone-number"]
     address = request.form["address"]
-    items = request.form["items"]
     new_order = Order(name, phone_no, address, items)
+    items = request.form.getlist["food-item"]
+    
     order_repo.save(new_order)
+
+    # order_item_repo.add_item_by_id(new_order.items.id)
     return redirect("/orders")
-    print(request.post)
+    
 
 @order_blueprint.route('/orders/<id>/edit')
 def edit_order(id):

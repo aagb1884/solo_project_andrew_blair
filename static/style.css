@@ -1,6 +1,6 @@
 body {
     background-color: lightcoral;
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: 'Staatliches', cursive;
 }
 
@@ -9,26 +9,174 @@ body header section {
     font-size:xx-large;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(144, 140, 251, .3); 
+    letter-spacing: 1px;
+}
+
+body footer {
+    margin-top: 20px;
+    display: flex;
+    font-size:large;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(144, 140, 251, .3); 
+    letter-spacing: 1px;
+}
+
+body footer ul {
+    list-style-type: none;
 }
 
 body > .container { 
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     font-size:x-large;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
-/* body > .container > .barry-chips > .barry1 {
-    font-size: larger;
+body > .container > #barry-chips {
+  font-size: 125%;
+  padding: 10px;
+  border: 4px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: rgb(240, 128, 128);
+  background-color: rgb(144, 140, 251, .3)
 }
 
-body > .container > .barry-chips > .barry2 {
-  font-size: larger;
+
+body > .container > #barry-chips > #barry1 > p {
+  font-weight: bold;
 }
 
-body > .container > .barry-chips > .barry3 {
-  font-size: x-large;
-} */
+body > .container > #barry-chips > #barry2 {
+  font-size: 100%;
+}
+
+body > .container > #barry-chips > #barry3 {
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+body > .container > #menu {
+  padding-top: 20px;
+}
+
+body > .container > #menu > .name {
+    padding: 10px;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(144, 140, 251, .7); 
+}
+
+body > .container > #menu > .price {
+    padding: 10px;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(164, 88, 240, .7); 
+}
+
+body > .container > #menu > .new-order {
+    padding: 10px;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(144, 140, 251, .7); 
+}
+
+body > .container > #new-order > h2 {
+    padding: 10px;
+    border: 4px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(164, 88, 240, .3);    
+}
+
+body > .container > #new-order > form {
+    padding: 10px;
+    border: 4px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(164, 88, 240, .3); 
+    line-height: 150%;
+}
+
+body > .new-order-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    padding: 10px;
+    border: 4px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(164, 88, 240, .5);  
+    font-size: 200%;
+}
+
+body > .container > .orders {
+    padding: 10px;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(144, 140, 251, .4); 
+    line-height: 150%;
+}
+
+body > .container > #individual-orders {
+    margin-top: 30px;
+    padding: 10px;
+    border: 4px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(164, 88, 240, .3);  
+    line-height: 150%;
+}
+
+body > .container > #update-order {
+  margin-top: 30px;
+  padding: 20px;
+  border: 4px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: lightcoral;
+  background-color: rgb(164, 88, 240, .3);  
+  line-height: 150%;
+}
+
+body > .container > #all-orders > #individual-order {
+  flex-direction: row;
+  padding: 20px;
+  border: 4px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: lightcoral;
+  background-color: rgb(164, 88, 240, .3);  
+  line-height: 150%;
+}
+
 
 nav > ul {
     display: flex;
@@ -36,6 +184,12 @@ nav > ul {
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-evenly;
+    font-size: x-large;
+    border: 4px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightcoral;
+    background-color: rgb(144, 140, 251, .4); 
     
 }
 
@@ -45,7 +199,7 @@ body {
 }
 
 a:link {
-  color: green;
+  color: #98fbf1;
   background-color: transparent;
   text-decoration: none;
 }
@@ -67,4 +221,17 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+
+.button {
+  background-color: #908cfb;  
+  border: 2px;
+  border-radius: 5px;
+  border-color: lightcoral;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
 </style>

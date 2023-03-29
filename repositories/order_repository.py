@@ -7,14 +7,19 @@ import repositories.order_repository as order_repo
 import repositories.item_repository as item_repo
 
 def save(order):
-    sql = "INSERT INTO orders (name, phone_no, address) VALUES ( %s, %s, %s ) RETURNING id"
+    sql1 = """INSERT INTO orders (name, phone_no, address) 
+            VALUES ( %s, %s, %s ) 
+            RETURNING id"""
     values = [order.name, order.phone_no, order.address]
-    results = run_sql( sql, values )
+    results = run_sql( sql1, values )
     order.id = results[0]['id']
-    for row in results:
-        items = item_repo.get_items_for_order(id)
-        order = Order(row['name'], row['phone_no'], row['address'], items, row['id'] )
+    for result in results:
+        order = Order(result['name'], result['phone_no'], result['address']) 
+        # items = 
     return order
+
+# issue with item value?
+# right function for items = ?
 
 def select_all():
     orders = []
@@ -53,8 +58,6 @@ def update(order):
     values = [order.name, order.phone_no, order.address, order.id]
     run_sql(sql, values)
  
-    
-
 def add_item_to_order(id):
     items = []
     sql = """SELECT items.*
