@@ -38,15 +38,18 @@ def new_order():
 
 @order_blueprint.route('/orders', methods=['POST'])
 def create_order():
+    order_items = []
     name = request.form["name"]
     phone_no = request.form["phone-number"]
     address = request.form["address"]
+    items = request.form["food-item"]
+    for item in items:
+        order_items.append(item)
+    items = order_items
     new_order = Order(name, phone_no, address, items)
-    items = request.form.getlist["food-item"]
     
     order_repo.save(new_order)
-
-    # order_item_repo.add_item_by_id(new_order.items.id)
+    
     return redirect("/orders")
     
 
@@ -55,6 +58,7 @@ def edit_order(id):
     items = item_repo.select_all()
     order = order_repo.select(id)
     potato = [item.id for item in order.items]
+   
     return render_template('orders/edit.html', order = order, items=items, potato=potato)
 
 @order_blueprint.route('/orders/<id>', methods=['POST'])
@@ -62,9 +66,15 @@ def update_order(id):
     name = request.form["name"]
     phone_no = request.form["phone-number"]
     address = request.form["address"]
-    items = request.form["items"]
+    order_items = request.form["food-items"]
+    # for item in items:
+    #     order_items.append(item)
+    specific_order = order_repo.select(id)
+    items = item_repo.get_items_for_order(order_items)
+    specific_order.items = items
     order = Order(name, phone_no, address, items, id)
     order_repo.update(order)
+    
     return redirect('/orders')
 
 @order_blueprint.route('/orders/<id>/delete', methods=['POST'])
